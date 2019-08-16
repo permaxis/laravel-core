@@ -13,5 +13,12 @@
         "psr-4": {
             "Permaxis\\Core\\": "src/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Permaxis\\Core\\CoreServiceProvider"
+            ],
+        }
     }
 }
