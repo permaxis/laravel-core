@@ -1,0 +1,17 @@
+{
+    "name": "permaxis/core",
+    "description": "Core Permaxis",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Permaxis",
+            "email": "contact@permaxis.fr"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Permaxis\\Core\\": "src/"
+        }
+    }
+}
