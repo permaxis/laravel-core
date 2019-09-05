@@ -25,6 +25,7 @@ trait TraitEntityManager
         // make a new validator object
         $v = Validator::make($data, self::$rules);
 
+
         // check for failure
         if ($v->fails())
         {

@@ -8,7 +8,10 @@
             "email": "contact@permaxis.fr"
         }
     ],
-    "require": {},
+    "require": {
+        "symfony/config": "^4.3"
+        "symfony/yaml": "^4.3"
+    },
     "autoload": {
         "psr-4": {
             "Permaxis\\Core\\": "src/"

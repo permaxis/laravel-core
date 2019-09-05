@@ -15,5 +15,14 @@ class CoreServiceProvider extends ServiceProvider
     }
     public function register()
     {
+        $this->registerUtils();
     }
+
+    private function registerUtils()
+    {
+        $this->app->singleton('Utils\UtilsEnv', function ($app) {
+            return App\Services\Utils\UtilsEnv::getInstance();
+        });
+    }
+
 }
