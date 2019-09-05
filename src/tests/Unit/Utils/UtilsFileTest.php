@@ -3,9 +3,7 @@
 namespace Permaxis\Core\App\Tests\Utils\Unit;
 
 use Illuminate\Support\Facades\App;
-use Permaxis\Core\App\Tests\AbstractTest;
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Permaxis\Core\App\Services\Tests\AbstractTest;
 
 class UtilsFileTest extends AbstractTest
 {

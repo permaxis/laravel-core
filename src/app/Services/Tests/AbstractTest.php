@@ -6,7 +6,7 @@
  * Time: 17:16
  */
 
-namespace Permaxis\Core\App\Tests;
+namespace Permaxis\Core\App\Services\Tests;
 
 
 use Tests\TestCase;
