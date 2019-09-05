@@ -23,6 +23,12 @@ class CoreServiceProvider extends ServiceProvider
         $this->app->singleton('Utils\UtilsEnv', function ($app) {
             return App\Services\Utils\UtilsEnv::getInstance();
         });
+
+        $this->app->singleton('Utils\UtilsFile', function ($app) {
+            return App\Services\Utils\UtilsFile::getInstance();
+        });
+
+
     }
 
 }

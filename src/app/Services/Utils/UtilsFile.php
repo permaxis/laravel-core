@@ -73,7 +73,7 @@ class UtilsFile
 
         if (empty($file))
         {
-            throw new \Exception('File.'.$filename.' not found !');
+            throw new \Exception('File '.$filename.' not found !');
         }
 
         $ext = pathinfo($file, PATHINFO_EXTENSION);
