@@ -9,7 +9,7 @@ use Illuminate\Support\MessageBag;
  * Date: 04/01/2019
  * Time: 10:50
  */
-trait ModelManager
+trait TraitEntityManager
 {
     protected $errors;
 
@@ -93,12 +93,12 @@ trait ModelManager
 
     public function beforeSave()
     {
-        return true;
+        return $this;
     }
 
     public function afterSave()
     {
-        return true;
+        return $this;
     }
 
     public function validate($params = array())
@@ -130,30 +130,6 @@ trait ModelManager
     }
 
 
-    public function save(array $options = array())
-    {
-        if (isset($options['validate']) && $options['validate'])
-        {
-            $validate = $this->validate($options);
-            if ($validate)
-            {
-                $result = $this->beforeSave($options);
-                $result = $result && parent::save($options);
-                $result = $result && $this->afterSave($options);
-                return $result;
-            }
-            else
-            {
-                return $validate;
-            }
-        }
-        else
-        {
-            $result = $this->beforeSave($options);
-            $result = $result && parent::save($options);
-            $result = $result && $this->afterSave($options);
-            return $result;
-        }
-    }
+
 
 }

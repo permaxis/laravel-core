@@ -9,7 +9,7 @@ use Illuminate\Support\MessageBag;
  * Date: 04/01/2019
  * Time: 10:50
  */
-trait ModelManager
+trait ApiValidateModelManager
 {
     protected $errors;
 
@@ -123,37 +123,15 @@ trait ModelManager
         return self::$rules;
     }
 
-
-    public static function getTableName()
-    {
-        return with(new static)->getTable();
-    }
-
-
     public function save(array $options = array())
     {
-        if (isset($options['validate']) && $options['validate'])
-        {
-            $validate = $this->validate($options);
-            if ($validate)
-            {
-                $result = $this->beforeSave($options);
-                $result = $result && parent::save($options);
-                $result = $result && $this->afterSave($options);
-                return $result;
-            }
-            else
-            {
-                return $validate;
-            }
-        }
-        else
-        {
-            $result = $this->beforeSave($options);
-            $result = $result && parent::save($options);
-            $result = $result && $this->afterSave($options);
-            return $result;
-        }
+        $this->beforeSave();
+
+        $result = parent::save($options);
+
+        $this->afterSave();
+
+        return $result;
     }
 
 }
