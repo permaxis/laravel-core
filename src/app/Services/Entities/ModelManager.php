@@ -78,12 +78,25 @@ trait ModelManager
 
     public function saveTo(array $options = array())
     {
-        $this->beforeSave();
+        if (!isset($options['validate']) || (isset($options['validate']) && $options['validate']))
+        {
+            $validate = $this->validate($options);
+            if ($validate)
+            {
+                $result = $this->beforeSave($options);
+                $result = $result && parent::save($options);
+                $result = $result && $this->afterSave($options);
+                return $result;
+            }
+            else
+            {
+                return $validate;
+            }
+        }
 
-        $result = $this->save($options);
-
-        $this->afterSave();
-
+        $result = $this->beforeSave($options);
+        $result = $result && $this->save($options);
+        $result = $result && $this->afterSave($options);
         return $result;
 
     }
@@ -149,7 +162,7 @@ trait ModelManager
                 return $validate;
             }
         }
-        
+
         $result = $this->beforeSave($options);
         $result = $result && parent::save($options);
         $result = $result && $this->afterSave($options);
