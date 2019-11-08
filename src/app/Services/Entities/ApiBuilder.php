@@ -86,6 +86,8 @@ class ApiBuilder
 
     public function get()
     {
+        $query = array();
+
         if (!empty($this->orders['direction'])
             && !empty($this->orders['column']))
         {
@@ -99,8 +101,10 @@ class ApiBuilder
             $query['page[size]'] = $this->pagination['per_page'];
         }
 
-
-        $query = array_merge($query, $this->queryString);
+        if (!empty($query))
+        {
+            $query = array_merge($query, $this->queryString);
+        }
 
         $api_request = $this->client->get($this->uri ,[
             'query' => $query
