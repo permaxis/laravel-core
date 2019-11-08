@@ -86,11 +86,19 @@ class ApiBuilder
 
     public function get()
     {
-        $query = array(
-            'sort' => $this->orders['direction'].$this->orders['column'],
-            'page[number]' => $this->pagination['page'],
-            'page[size]' => $this->pagination['per_page'],
-        );
+        if (!empty($this->orders['direction'])
+            && !empty($this->orders['column']))
+        {
+            $query['sort'] = $this->orders['direction'].$this->orders['column'];
+        }
+
+        if (!empty($this->pagination['page'])
+            && !empty($this->orders['per_page']))
+        {
+            $query['page[number]'] = $this->pagination['page'];
+            $query['page[size]'] = $this->pagination['per_page'];
+        }
+
 
         $query = array_merge($query, $this->queryString);
 
