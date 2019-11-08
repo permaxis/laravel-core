@@ -13,7 +13,7 @@ trait ModelManager
 {
     protected $errors;
 
-    protected static $rules = array();
+    //protected static $rules = array();
 
     /**
      * @var bool
