@@ -19,10 +19,6 @@ use Permaxis\Core\App\Services\Entities\ModelManager;
 
 Abstract class  AbstractApiModelManager
 {
-    /**
-     * @var string
-     */
-    public $resourceType;
 
     /**
      * @var integer
@@ -36,7 +32,6 @@ Abstract class  AbstractApiModelManager
 
     public function __construct()
     {
-       $this->resourceType = self::ressourceType();
        $this->attributes  = new \stdClass();
        $this->initAttributes();
        $this->errors = new MessageBag();
@@ -49,12 +44,12 @@ Abstract class  AbstractApiModelManager
         return $client;
     }
 
-    public function baseUrl() {
+    public function getBaseUrl() {
 
         return 'entities';
     }
 
-    public function ressourceType() {
+    public function getResourceType() {
 
         return 'entities';
     }
@@ -105,7 +100,7 @@ Abstract class  AbstractApiModelManager
     {
         $data = array(
             'data' => [
-                'type' => $this->resourceType,
+                'type' => $this->getResourceType(),
             ]
         );
 
@@ -125,14 +120,14 @@ Abstract class  AbstractApiModelManager
         try {
             if ($this->id == null)
             {
-                $response = self::client()->post(self::baseUrl(),[
+                $response = self::client()->post($this->getBaseUrl(),[
                     'body' => json_encode($data)
                 ]);
             }
             else
             {
                 $data['data']['id'] = $this->id;
-                $response = self::client()->patch(self::baseUrl().'/'.$this->id,[
+                $response = self::client()->patch($this->getBaseUrl().'/'.$this->id,[
                     'body' => json_encode($data)
                 ]);
             }
@@ -181,7 +176,7 @@ Abstract class  AbstractApiModelManager
 
     public function delete()
     {
-        self::client()->delete(self::baseUrl().'/'.$this->id);
+        self::client()->delete($this->getBaseUrl().'/'.$this->id);
 
         return true;
     }
