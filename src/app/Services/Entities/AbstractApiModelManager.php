@@ -38,7 +38,7 @@ Abstract class  AbstractApiModelManager
     }
 
 
-    public function client() {
+    public function getClient() {
 
         $client = App::make('api_v1');
         return $client;
@@ -66,7 +66,7 @@ Abstract class  AbstractApiModelManager
      */
     public static function query()
     {
-        $apiBuilder = (new static)->newQuery((new static)->client(), (new static)->getClass(), (new static)->baseUrl());
+        $apiBuilder = (new static)->newQuery((new static)->getClient(), (new static)->getClass(), (new static)->baseUrl());
 
         return $apiBuilder;
     }
@@ -120,14 +120,14 @@ Abstract class  AbstractApiModelManager
         try {
             if ($this->id == null)
             {
-                $response = self::client()->post($this->getBaseUrl(),[
+                $response = $this->getClient()->post($this->getBaseUrl(),[
                     'body' => json_encode($data)
                 ]);
             }
             else
             {
                 $data['data']['id'] = $this->id;
-                $response = self::client()->patch($this->getBaseUrl().'/'.$this->id,[
+                $response = $this->getClient()->patch($this->getBaseUrl().'/'.$this->id,[
                     'body' => json_encode($data)
                 ]);
             }
@@ -176,7 +176,7 @@ Abstract class  AbstractApiModelManager
 
     public function delete()
     {
-        self::client()->delete($this->getBaseUrl().'/'.$this->id);
+        $this->getClient()->delete($this->getBaseUrl().'/'.$this->id);
 
         return true;
     }
