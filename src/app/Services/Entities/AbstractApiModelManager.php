@@ -66,7 +66,7 @@ Abstract class  AbstractApiModelManager
      */
     public static function query()
     {
-        $apiBuilder = (new static)->newQuery((new static)->getClient(), (new static)->getClass(), (new static)->baseUrl());
+        $apiBuilder = (new static)->newQuery((new static)->getClient(), (new static)->getClass(), (new static)->getBaseUrl());
 
         return $apiBuilder;
     }
