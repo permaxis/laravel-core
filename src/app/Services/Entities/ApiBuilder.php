@@ -106,7 +106,7 @@ class ApiBuilder
             $query = array_merge($query, $this->queryString);
         }
 
-        $api_request = $this->client->get($this->uri ,[
+        $api_request = $this->client->get($this->baseUrl ,[
             'query' => $query
         ]);
 
@@ -121,6 +121,8 @@ class ApiBuilder
 
             $entities->data[$key] = $newEntity;
         }
+
+        $entities->data = collect($entities->data);
 
         return $entities;
 
