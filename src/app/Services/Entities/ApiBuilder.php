@@ -88,7 +88,10 @@ class ApiBuilder
     {
         $query = array();
 
-        $query['sort']= $this->orders['column'];
+        if (!empty($this->orders['column']))
+        {
+            $query['sort']= $this->orders['column'];
+        }
 
         if (!empty($this->orders['direction'])
             && !empty($this->orders['column']))
