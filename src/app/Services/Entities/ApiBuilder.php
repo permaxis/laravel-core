@@ -18,12 +18,18 @@ class ApiBuilder
      */
     private $queryString;
 
+    /**
+     * @var bool 
+     */
+    private $doPaginate;
+
     public function __construct(Client $client, $model, $baseUrl )
     {
         $this->client = $client;
         $this->model = $model;
         $this->baseUrl = $baseUrl;
         $this->queryString = [];
+        $this->doPaginate = true;
     }
 
     /**
@@ -126,7 +132,7 @@ class ApiBuilder
             'query' => $query
         ]);
 
-        $entities = json_decode($api_request->getBody()); 
+        $entities = json_decode($api_request->getBody());
 
 
         foreach ($entities->data as $key => $entity)
