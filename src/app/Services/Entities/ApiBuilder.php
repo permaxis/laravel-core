@@ -19,7 +19,7 @@ class ApiBuilder
     private $queryString;
 
     /**
-     * @var bool 
+     * @var bool
      */
     private $doPaginate;
 
@@ -117,7 +117,7 @@ class ApiBuilder
         }
 
         if (!empty($this->pagination['page'])
-            && !empty($this->orders['per_page']))
+            && !empty($this->pagination['per_page']))
         {
             $query['page[number]'] = $this->pagination['page'];
             $query['page[size]'] = $this->pagination['per_page'];
