@@ -105,6 +105,11 @@ class ApiBuilder
             $query['sort'] = $this->orders['direction'].$this->orders['column'];
         }
 
+        if (!$this->doPaginate)
+        {
+            $query['page[pagination]'] = 0;
+        }
+
         if (!empty($this->pagination['page'])
             && !empty($this->orders['per_page']))
         {
@@ -149,6 +154,12 @@ class ApiBuilder
         return $this;
     }
 
+    public function doPaginate($doPaginate = true)
+    {
+        $this->doPaginate = $doPaginate;
+
+        return $this;
+    }
 
     public function where($field_name, $operator , $value)
     {

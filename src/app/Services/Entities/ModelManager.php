@@ -15,6 +15,11 @@ trait ModelManager
 
     //protected static $rules = array();
 
+    /*protected $enableValidate = array(
+        'attributes' => false,
+        'model' => true
+    );*/
+
     /**
      * @var bool
      */
