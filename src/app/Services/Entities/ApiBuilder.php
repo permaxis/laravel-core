@@ -126,7 +126,7 @@ class ApiBuilder
             'query' => $query
         ]);
 
-        $entities = json_decode($api_request->getBody());
+        $entities = json_decode($api_request->getBody()); 
 
 
         foreach ($entities->data as $key => $entity)
