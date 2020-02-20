@@ -9,7 +9,8 @@
 namespace Permaxis\Core\App\Services\Entities;
 
 
-use GuzzleHttp\Client;
+use Permaxis\Core\App\Services\Api\ApiClient;
+use Permaxis\Core\App\Services\Api\RestClient as Client;
 
 class ApiBuilder
 {
@@ -22,6 +23,11 @@ class ApiBuilder
      * @var bool
      */
     private $doPaginate;
+
+    /*
+     * @var string
+     */
+    private $uri;
 
     public function __construct(Client $client, $model, $baseUrl )
     {
@@ -54,7 +60,7 @@ class ApiBuilder
         $this->client = $client;
     }
 
-    public function getClient()
+    public function getClient() : Client
     {
         return $this->client;
     }
@@ -123,17 +129,13 @@ class ApiBuilder
             $query['page[size]'] = $this->pagination['per_page'];
         }
 
-        if (!empty($query))
-        {
-            $query = array_merge($query, $this->queryString);
-        }
+        $query = array_merge($query, $this->queryString);
 
         $api_request = $this->client->get($this->baseUrl ,[
             'query' => $query
         ]);
 
         $entities = json_decode($api_request->getBody());
-
 
         foreach ($entities->data as $key => $entity)
         {
@@ -192,6 +194,34 @@ class ApiBuilder
         }
 
         $this->queryString["filter[$field_name]"] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUri()
+    {
+        return $this->uri;
+    }
+
+    /**
+     * @param mixed $uri
+     */
+    public function setUri($uri)
+    {
+        $this->uri = $uri;
+
+        if (strpos($uri, "/") === 0)
+        {
+            $this->baseUrl = $uri;
+        }
+        else
+        {
+            $this->baseUrl .= '/'. $uri;
+        }
+
 
         return $this;
     }

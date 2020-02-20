@@ -10,7 +10,7 @@ namespace Permaxis\Core\App\Services\Entities;
 
 
 use Carbon\Carbon;
-use GuzzleHttp\Client;
+use Permaxis\Core\App\Services\Api\RestClient as Client;
 use Illuminate\Support\Facades\App;
 use Permaxis\Core\App\Services\Entities\ModelManager;
 

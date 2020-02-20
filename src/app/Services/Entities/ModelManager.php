@@ -15,10 +15,10 @@ trait ModelManager
 
     //protected static $rules = array();
 
-    /*protected $enableValidate = array(
+    protected $enableValidate = array(
         'attributes' => false,
         'model' => true
-    );*/
+    );
 
     /**
      * @var bool
@@ -83,6 +83,7 @@ trait ModelManager
 
     public function saveTo(array $options = array())
     {
+
         if (!isset($options['validate']) || (isset($options['validate']) && $options['validate']))
         {
             $validate = $this->validate($options);
@@ -154,7 +155,9 @@ trait ModelManager
     {
         if (!isset($options['validate']) || (isset($options['validate']) && $options['validate']))
         {
-            $validate = $this->validate($options);
+            $result = $this->beforeValidate($options);
+            $validate = $result && $this->validate($options);
+            $validate = $validate && $this->AfterValidate($options);
             if ($validate)
             {
                 $result = $this->beforeSave($options);
@@ -172,6 +175,17 @@ trait ModelManager
         $result = $result && parent::save($options);
         $result = $result && $this->afterSave($options);
         return $result;
+    }
+
+
+    public function beforeValidate($options = array())
+    {
+        return true;
+    }
+
+    public function afterValidate($options = array())
+    {
+        return true;
     }
 
 }

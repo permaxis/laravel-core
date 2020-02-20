@@ -11,7 +11,7 @@ namespace Permaxis\Core\App\Services\Entities;
 
 use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Permaxis\Core\App\Services\Api\RestClient as Client;
+use Permaxis\Core\App\Services\Api\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
 use Illuminate\Support\Facades\App;
@@ -19,7 +19,7 @@ use Illuminate\Support\MessageBag;
 use Permaxis\Core\App\Services\Entities\ModelManager;
 use Permaxis\Oauth2Passport\App\Entities\ApiClient;
 
-Abstract class  AbstractApiModelManager
+Abstract class  AbstractApiModelManagerOld
 {
 
     /**
@@ -27,16 +27,20 @@ Abstract class  AbstractApiModelManager
      */
     public $id;
 
-    protected static $attributes_names = [];
+    /**
+     * @var array
+     */
+    public $attributes;
 
     public function __construct()
     {
+       $this->attributes  = new \stdClass();
        $this->initAttributes();
        $this->errors = new MessageBag();
     }
 
 
-    public function getRestClient() : Client {
+    public function getClient() : Client {
 
         $client = App::make('api_v1');
         return $client;
@@ -64,7 +68,7 @@ Abstract class  AbstractApiModelManager
      */
     public static function query() : ApiBuilder
     {
-        $apiBuilder = (new static)->newQuery((new static)->getRestClient(), (new static)->getClass(), (new static)->getBaseUrl());
+        $apiBuilder = (new static)->newQuery((new static)->getClient(), (new static)->getClass(), (new static)->getBaseUrl());
 
         return $apiBuilder;
     }
@@ -84,10 +88,11 @@ Abstract class  AbstractApiModelManager
     {
         foreach ($input as $key => $value)
         {
-            if (in_array($key, $this::$attributes_names))
+            if (property_exists($this->attributes, $key))
             {
-                $this->{$key} = $value;
+                $this->attributes->{$key} = $value;
             }
+
         }
 
         return $this;
@@ -101,33 +106,30 @@ Abstract class  AbstractApiModelManager
             ]
         );
 
-
-
         $attributes = array();
 
-        foreach ($this::$attributes_names as $attribute_name)
+        foreach ($this->getAttributes() as $name => $value)
         {
-            $attributes[$attribute_name] = $this->{$attribute_name};
-
+            $attributes[$name] = $value;
         }
+
 
         unset($attributes['created_at']);
         unset($attributes['updated_at']);
 
         $data['data']['attributes'] = $attributes;
 
-
         try {
             if ($this->id == null)
             {
-                $response = $this->getRestClient()->post($this->getBaseUrl(),[
+                $response = $this->getClient()->post($this->getBaseUrl(),[
                     'body' => json_encode($data)
                 ]);
             }
             else
             {
                 $data['data']['id'] = $this->id;
-                $response = $this->getRestClient()->patch($this->getBaseUrl().'/'.$this->id,[
+                $response = $this->getClient()->patch($this->getBaseUrl().'/'.$this->id,[
                     'body' => json_encode($data)
                 ]);
             }
@@ -163,51 +165,59 @@ Abstract class  AbstractApiModelManager
 
         }
 
+
         return true;
+    }
+
+
+    public function getAttributes()
+    {
+        return get_object_vars($this->attributes);
     }
 
 
     public function delete()
     {
-        $this->getRestClient()->delete($this->getBaseUrl().'/'.$this->id);
+        $this->getClient()->delete($this->getBaseUrl().'/'.$this->id);
 
         return true;
     }
 
-    public function setRestClient(Client $client)
+    public function setClient(Client $client)
     {
-        $this->restClient = $client;
+        $this->client = $client;
     }
 
     public function hydrateModel($resource)
     {
-        $this::hydrateThisModel($this, $resource);
+        self::hydrateThisModel($this, $resource);
         return $this;
     }
 
 
     public static function hydrateThisModel(&$model, $resource)
     {
-
-        foreach ($model::$attributes_names as $attributes_name)
+        $attributes  =  get_object_vars($model->attributes);
+        foreach ($attributes as $key => $value)
         {
-            if ($attributes_name == 'created_at')
+            if ($key == 'created_at')
             {
-                $model->created_at = Carbon::parse($resource->attributes->created_at);
+                $model->attributes->created_at = Carbon::parse($resource->attributes->created_at);
             }
-            elseif ($attributes_name == 'updated_at')
+            elseif ($key == 'updated_at')
             {
-                $model->updated_at = Carbon::parse($resource->attributes->updated_at);
+                $model->attributes->updated_at = Carbon::parse($resource->attributes->updated_at);
             }
-            elseif ($attributes_name == 'id')
+            elseif ($key == 'id')
             {
                 $model->id = $resource->attributes->id;
+                $model->attributes->id = $resource->attributes->id;
             }
             else
             {
-                if (property_exists($resource->attributes, $attributes_name))
+                if (property_exists($model->attributes, $key) && property_exists($resource->attributes, $key))
                 {
-                    $model->{$attributes_name} = $resource->attributes->{$attributes_name};
+                    $model->attributes->$key = $resource->attributes->$key;
                 }
             }
         }
@@ -217,10 +227,6 @@ Abstract class  AbstractApiModelManager
 
     public function initAttributes()
     {
-        foreach ($this::$attributes_names as $attribute_name)
-        {
-            $this->{$attribute_name} = null;
-        }
         return $this;
     }
 

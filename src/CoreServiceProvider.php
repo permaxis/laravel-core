@@ -1,6 +1,8 @@
 <?php
 namespace Permaxis\Core;
 use Illuminate\Support\ServiceProvider;
+use Permaxis\Core\App\Services\Blade\BladeMacroServiceProvider;
+
 /**
  * Created by PhpStorm.
  * User: dakin
@@ -12,6 +14,8 @@ class CoreServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadRoutesFrom(__DIR__.'/routes/web.php');
+
+        BladeMacroServiceProvider::boot();
     }
     public function register()
     {

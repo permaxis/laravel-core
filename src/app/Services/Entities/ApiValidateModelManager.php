@@ -125,11 +125,11 @@ trait ApiValidateModelManager
 
     public function save(array $options = array())
     {
-        $this->beforeSave();
+        $result = $this->beforeSave($options = array());
 
-        $result = parent::save($options);
+        $result = $result && parent::save($options);
 
-        $this->afterSave();
+        $result = $result & $this->afterSave($options = array());
 
         return $result;
     }
