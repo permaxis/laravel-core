@@ -9,7 +9,7 @@ use Illuminate\Support\MessageBag;
  * Date: 04/01/2019
  * Time: 10:50
  */
-trait TraitEntityManager
+trait ApiValidateModelManager
 {
     protected $errors;
 
@@ -93,12 +93,12 @@ trait TraitEntityManager
 
     public function beforeSave()
     {
-        return $this;
+        return true;
     }
 
     public function afterSave()
     {
-        return $this;
+        return true;
     }
 
     public function validate($params = array())
@@ -123,13 +123,15 @@ trait TraitEntityManager
         return self::$rules;
     }
 
-
-    public static function getTableName()
+    public function save(array $options = array())
     {
-        return with(new static)->getTable();
+        $result = $this->beforeSave($options = array());
+
+        $result = $result && parent::save($options);
+
+        $result = $result && $this->afterSave($options = array());
+
+        return $result;
     }
-
-
-
 
 }
