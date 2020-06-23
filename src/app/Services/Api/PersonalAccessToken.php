@@ -31,7 +31,6 @@ Trait PersonalAccessToken
         }
         else
         {
-            Passport::personalAccessClientId('0aafc6c2-fe01-4b97-ba88-b094ca504d28');
             $access_token =  $this->createToken('name')->accessToken;
             session('current_user_access_token',$access_token);
         };
