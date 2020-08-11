@@ -287,7 +287,14 @@ Abstract class  AbstractApiModelManager
 
     public function getFullBaseUrl()
     {
-        return $this->getRestClient()->getOptions()['base_uri'].$this->getBaseUrl();
+        $options = $this->getRestClient()->getOptions();
+
+        if (isset($options['base_uri']))
+        {
+            return $options['base_uri'].$this->getBaseUrl();
+        }
+
+        return null;
     }
 
 

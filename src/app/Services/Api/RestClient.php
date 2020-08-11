@@ -51,12 +51,12 @@ class RestClient
         $this->options = $options;
     }
 
-    public function request($uri, $options = array())
+    public function request($method, $uri, $options = array())
     {
         $this->processAuthorizationToken();
         $options = array_merge_recursive($this->options, $options);
 
-        return $this->client->request($uri, $options);
+        return $this->client->request($method,$uri, $options);
     }
 
     public function get($uri, $options = array())
@@ -71,7 +71,6 @@ class RestClient
     {
         $this->processAuthorizationToken();
         $options = array_merge_recursive($this->options, $options);
-
         return $this->client->request('POST',$uri, $options);
     }
 

@@ -146,4 +146,18 @@ class UtilsFile
             }
         }
     }
+
+    public function getFileBasename($filename)
+    {
+        $info = pathinfo($filename);
+        $filename =  basename($filename,'.'.$info['extension']);
+        return $filename;
+    }
+
+    public function getFileExtension($filename)
+    {
+        $info = pathinfo($filename);
+        return $info['extension'];
+    }
+
 }
