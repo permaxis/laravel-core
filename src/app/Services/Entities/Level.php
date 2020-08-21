@@ -6,7 +6,7 @@
  * Time: 18:19
  */
 
-namespace Permaxis\Core\App\Entities;
+namespace Permaxis\Laravel\Core\App\Entities;
 
 class Level
 {

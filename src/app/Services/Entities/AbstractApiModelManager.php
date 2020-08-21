@@ -6,17 +6,17 @@
  * Time: 12:40
  */
 
-namespace Permaxis\Core\App\Services\Entities;
+namespace Permaxis\Laravel\Core\App\Services\Entities;
 
 
 use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Permaxis\Core\App\Services\Api\RestClient as Client;
+use Permaxis\Laravel\Core\App\Services\Api\RestClient as Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\MessageBag;
-use Permaxis\Core\App\Services\Entities\ModelManager;
+use Permaxis\Laravel\Core\App\Services\Entities\ModelManager;
 use Permaxis\Oauth2Passport\App\Entities\ApiClient;
 
 Abstract class  AbstractApiModelManager
@@ -40,7 +40,7 @@ Abstract class  AbstractApiModelManager
     protected static $attributes = [];
 
     /**
-     * @var \Permaxis\Core\App\Services\Api\RestClient
+     * @var \Permaxis\Laravel\Core\App\Services\Api\RestClient
      */
     protected $restClient;
 
@@ -51,7 +51,7 @@ Abstract class  AbstractApiModelManager
     }
 
 
-    public function getRestClient() : \Permaxis\Core\App\Services\Api\RestClient{
+    public function getRestClient() : \Permaxis\Laravel\Core\App\Services\Api\RestClient{
 
         if (empty($this->restClient))
         {
@@ -88,7 +88,7 @@ Abstract class  AbstractApiModelManager
     /**
      * Begin querying the model.
      *
-     * @return Permaxis\CrudGenerator\App\Entities\ApiBuilder
+     * @return Permaxis\Laravel\CrudGenerator\App\Entities\ApiBuilder
      */
     public static function query() : ApiBuilder
     {
@@ -100,7 +100,7 @@ Abstract class  AbstractApiModelManager
     /**
      * Get a new query builder for the model's api.
      *
-     * @return Permaxis\CrudGenerator\App\Entities\ApiBuilder
+     * @return Permaxis\Laravel\CrudGenerator\App\Entities\ApiBuilder
      */
     public function newQuery(Client $client, $model, $baseUrl)
     {

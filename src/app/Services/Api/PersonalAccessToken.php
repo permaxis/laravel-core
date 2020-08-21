@@ -6,7 +6,7 @@
  * Time: 12:39
  */
 
-namespace Permaxis\Core\App\Services\Api;
+namespace Permaxis\Laravel\Core\App\Services\Api;
 
 use Laravel\Passport\ClientRepository;
 use Laravel\Passport\Passport;

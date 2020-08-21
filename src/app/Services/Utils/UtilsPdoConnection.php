@@ -6,7 +6,7 @@
  * Time: 15:24
  */
 
-namespace Permaxis\Core\App\Services\Utils;
+namespace Permaxis\Laravel\Core\App\Services\Utils;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Config\Loader\DelegatingLoader;
 use Symfony\Component\Config\Loader\LoaderResolver;

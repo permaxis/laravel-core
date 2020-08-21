@@ -6,7 +6,7 @@
  * Time: 17:53
  */
 
-namespace Permaxis\Core\App\Services\Api;
+namespace Permaxis\Laravel\Core\App\Services\Api;
 
 
 use Illuminate\Support\Facades\File;

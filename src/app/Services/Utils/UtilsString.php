@@ -6,14 +6,14 @@
  * Time: 15:24
  */
 
-namespace Permaxis\Core\App\Services\Utils;
+namespace Permaxis\Laravel\Core\App\Services\Utils;
 
 
 
 class UtilsString
 {
     /**
-     * @var \Permaxis\Core\App\Services\Utils
+     * @var \Permaxis\Laravel\Core\App\Services\Utils
      * @access private
      * @static
      */
@@ -39,7 +39,7 @@ class UtilsString
      * created if does not exists.
      *
      * @param void
-     * @return \Permaxis\Core\App\Services\Utils
+     * @return \Permaxis\Laravel\Core\App\Services\Utils
      */
     public static function getInstance()
     {

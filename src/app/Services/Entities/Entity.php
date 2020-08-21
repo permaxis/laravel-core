@@ -1,9 +1,9 @@
 <?php
 
-namespace Permaxis\Core\App\Services\Entities;
+namespace Permaxis\Laravel\Core\App\Services\Entities;
 
 use Illuminate\Database\Eloquent\Model;
-use Permaxis\Core\App\Services\Entities\ModelManager;
+use Permaxis\Laravel\Core\App\Services\Entities\ModelManager;
 
 class Entity extends Model
 {

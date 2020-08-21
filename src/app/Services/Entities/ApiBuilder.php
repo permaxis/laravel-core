@@ -6,11 +6,11 @@
  * Time: 16:38
  */
 
-namespace Permaxis\Core\App\Services\Entities;
+namespace Permaxis\Laravel\Core\App\Services\Entities;
 
 
-use Permaxis\Core\App\Services\Api\ApiClient;
-use Permaxis\Core\App\Services\Api\RestClient as Client;
+use Permaxis\Laravel\Core\App\Services\Api\ApiClient;
+use Permaxis\Laravel\Core\App\Services\Api\RestClient as Client;
 
 class ApiBuilder
 {

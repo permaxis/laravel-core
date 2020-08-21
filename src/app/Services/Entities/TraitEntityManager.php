@@ -1,5 +1,5 @@
 <?php
-namespace Permaxis\Core\App\Services\Entities;
+namespace Permaxis\Laravel\Core\App\Services\Entities;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\MessageBag;
 

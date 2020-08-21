@@ -1,6 +1,6 @@
 <?php
 
-namespace Permaxis\Core\App\Services\Utils;
+namespace Permaxis\Laravel\Core\App\Services\Utils;
 
 use Monolog\Formatter\JsonFormatter;
 

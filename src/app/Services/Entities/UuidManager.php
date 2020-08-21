@@ -6,7 +6,7 @@
  * Time: 16:04
  */
 
-namespace Permaxis\Core\App\Services\Entities;
+namespace Permaxis\Laravel\Core\App\Services\Entities;
 
 use Ramsey\Uuid\Uuid;
 

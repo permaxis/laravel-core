@@ -6,13 +6,13 @@
  * Time: 12:40
  */
 
-namespace Permaxis\Core\App\Services\Entities;
+namespace Permaxis\Laravel\Core\App\Services\Entities;
 
 
 use Carbon\Carbon;
-use Permaxis\Core\App\Services\Api\RestClient as Client;
+use Permaxis\Laravel\Core\App\Services\Api\RestClient as Client;
 use Illuminate\Support\Facades\App;
-use Permaxis\Core\App\Services\Entities\ModelManager;
+use Permaxis\Laravel\Core\App\Services\Entities\ModelManager;
 
 trait ApiModelManager
 {
@@ -58,7 +58,7 @@ trait ApiModelManager
     /**
      * Begin querying the model.
      *
-     * @return Permaxis\CrudGenerator\App\Entities\ApiBuilder
+     * @return Permaxis\Laravel\CrudGenerator\App\Entities\ApiBuilder
      */
     public static function query()
     {
@@ -70,7 +70,7 @@ trait ApiModelManager
     /**
      * Get a new query builder for the model's api.
      *
-     * @return Permaxis\CrudGenerator\App\Entities\ApiBuilder
+     * @return Permaxis\Laravel\CrudGenerator\App\Entities\ApiBuilder
      */
     public function newQuery(Client $client, $model, $baseUrl)
     {

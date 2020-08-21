@@ -1,6 +1,6 @@
 {
-    "name": "permaxis/core",
-    "description": "Core Permaxis",
+    "name": "permaxis/laravel-core",
+    "description": "Laravel Core Permaxis",
     "type": "library",
     "authors": [
         {
@@ -15,13 +15,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Permaxis\\Core\\": "src/"
+            "Permaxis\\Laravel\\Core\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Permaxis\\Core\\CoreServiceProvider"
+                "Permaxis\\Laravel\\Core\\CoreServiceProvider"
             ]
         }
     }

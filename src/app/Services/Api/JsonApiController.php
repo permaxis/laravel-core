@@ -1,6 +1,6 @@
 <?php
 
-namespace Permaxis\Core\App\Services\Api;
+namespace Permaxis\Laravel\Core\App\Services\Api;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
@@ -10,8 +10,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use Permaxis\Core\App\Services\Entities\Entity;
-use Permaxis\Core\App\Services\Utils\UtilsRequest;
+use Permaxis\Laravel\Core\App\Services\Entities\Entity;
+use Permaxis\Laravel\Core\App\Services\Utils\UtilsRequest;
 
 class JsonApiController extends Controller
 {
