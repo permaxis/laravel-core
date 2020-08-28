@@ -1,2 +1,2 @@
 # laravel-core
-Core libraries for laravel
+Toolbox libraries for laravel
