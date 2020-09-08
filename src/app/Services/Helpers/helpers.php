@@ -9,12 +9,12 @@ if (! function_exists('getLoggerLevel')) {
 
     function getLoggerLevelLabel($key)
     {
-        return \Permaxis\Laravel\Core\App\Entities\Level::getLevelLabel($key);
+        return \Permaxis\LaravelCore\App\Entities\Level::getLevelLabel($key);
     }
 
     function getLoggerLevelLabels($levels = [])
     {
-        return \Permaxis\Laravel\Core\App\Entities\Level::getLevelLabels($levels);
+        return \Permaxis\LaravelCore\App\Entities\Level::getLevelLabels($levels);
     }
 }
 

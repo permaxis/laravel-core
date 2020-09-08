@@ -6,7 +6,7 @@
  * Time: 17:04
  */
 
-namespace Permaxis\Laravel\Core\app\Services\Api;
+namespace Permaxis\LaravelCore\app\Services\Api;
 
 
 interface JwtTokenInterface

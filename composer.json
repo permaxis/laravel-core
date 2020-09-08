@@ -16,13 +16,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Permaxis\\Laravel\\Core\\": "src/"
+            "Permaxis\\LaravelCore\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Permaxis\\Laravel\\Core\\CoreServiceProvider"
+                "Permaxis\\LaravelCore\\CoreServiceProvider"
             ]
         }
     }

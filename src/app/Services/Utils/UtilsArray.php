@@ -1,6 +1,6 @@
 <?php
 
-namespace Permaxis\Laravel\Core\App\Services\Utils;
+namespace Permaxis\LaravelCore\App\Services\Utils;
 
 class UtilsArray
 {

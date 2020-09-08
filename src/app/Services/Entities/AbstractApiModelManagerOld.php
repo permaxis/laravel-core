@@ -6,17 +6,17 @@
  * Time: 12:40
  */
 
-namespace Permaxis\Laravel\Core\App\Services\Entities;
+namespace Permaxis\LaravelCore\App\Services\Entities;
 
 
 use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Permaxis\Laravel\Core\App\Services\Api\Client;
+use Permaxis\LaravelCore\App\Services\Api\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\MessageBag;
-use Permaxis\Laravel\Core\App\Services\Entities\ModelManager;
+use Permaxis\LaravelCore\App\Services\Entities\ModelManager;
 use Permaxis\Oauth2Passport\App\Entities\ApiClient;
 
 Abstract class  AbstractApiModelManagerOld
@@ -64,7 +64,7 @@ Abstract class  AbstractApiModelManagerOld
     /**
      * Begin querying the model.
      *
-     * @return Permaxis\Laravel\CrudGenerator\App\Entities\ApiBuilder
+     * @return Permaxis\LaravelCrudGenerator\app\Entities\ApiBuilder
      */
     public static function query() : ApiBuilder
     {
@@ -76,7 +76,7 @@ Abstract class  AbstractApiModelManagerOld
     /**
      * Get a new query builder for the model's api.
      *
-     * @return Permaxis\Laravel\CrudGenerator\App\Entities\ApiBuilder
+     * @return Permaxis\LaravelCrudGenerator\app\Entities\ApiBuilder
      */
     public function newQuery(Client $client, $model, $baseUrl)
     {

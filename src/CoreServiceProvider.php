@@ -1,7 +1,7 @@
 <?php
-namespace Permaxis\Laravel\Core;
+namespace Permaxis\LaravelCore;
 use Illuminate\Support\ServiceProvider;
-use Permaxis\Laravel\Core\App\Services\Blade\BladeMacroServiceProvider;
+use Permaxis\LaravelCore\App\Services\Blade\BladeMacroServiceProvider;
 
 /**
  * Created by Permaxis.

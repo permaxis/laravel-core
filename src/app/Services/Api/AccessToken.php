@@ -6,7 +6,7 @@
  * Time: 16:52
  */
 
-namespace Permaxis\Laravel\Core\App\Services\Api;
+namespace Permaxis\LaravelCore\App\Services\Api;
 
 
 class AccessToken

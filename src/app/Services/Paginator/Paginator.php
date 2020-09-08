@@ -6,7 +6,7 @@
  * Time: 11:16
  */
 
-namespace Permaxis\Laravel\Core\App\Services\Paginator;
+namespace Permaxis\LaravelCore\App\Services\Paginator;
 
 class Paginator
 {

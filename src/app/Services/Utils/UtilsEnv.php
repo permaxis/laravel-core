@@ -6,7 +6,7 @@
  * Time: 15:24
  */
 
-namespace Permaxis\Laravel\Core\App\Services\Utils;
+namespace Permaxis\LaravelCore\App\Services\Utils;
 
 
 
