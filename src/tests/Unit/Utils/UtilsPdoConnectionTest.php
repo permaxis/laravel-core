@@ -5,7 +5,7 @@ namespace Permaxis\LaravelCore\tests\Unit\Utils;
 use Permaxis\LaravelCore\app\Services\Tests\AbstractTest;
 use Permaxis\LaravelCore\app\Services\Utils\UtilsPdoConnection;
 
-class UtilsFileTest extends AbstractTest
+class UtilsPdoConnectionTest extends AbstractTest
 {
     /**
      * A basic test example.
