@@ -1,6 +1,6 @@
 {
     "name": "permaxis/laravel-core",
-    "description": "Laravel Core Permaxis",
+    "description": "Laravel Librairies Core Permaxis",
     "type": "library",
     "license": "MIT",
     "authors": [
