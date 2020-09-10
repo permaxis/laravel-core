@@ -1,6 +1,6 @@
 <?php
 
-namespace Permaxis\LaravelCore\app\tests\Utils\Unit;
+namespace Permaxis\LaravelCore\app\tests\Unit\Utils;
 
 use Illuminate\Support\Facades\App;
 use Permaxis\LaravelCore\app\Services\Tests\AbstractTest;
