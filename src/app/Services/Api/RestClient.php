@@ -1,5 +1,5 @@
 <?php
-namespace Permaxis\LaravelCore\App\Services\Api;
+namespace Permaxis\LaravelCore\app\Services\Api;
 
 use GuzzleHttp\Client as GuzzleClient;
 

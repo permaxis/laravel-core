@@ -6,7 +6,7 @@
  * Time: 17:16
  */
 
-namespace Permaxis\LaravelCore\App\Services\Tests;
+namespace Permaxis\LaravelCore\app\Services\Tests;
 
 
 use Tests\TestCase;

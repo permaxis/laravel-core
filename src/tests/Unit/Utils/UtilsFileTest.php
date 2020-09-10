@@ -1,9 +1,9 @@
 <?php
 
-namespace Permaxis\LaravelCore\App\Tests\Utils\Unit;
+namespace Permaxis\LaravelCore\app\Tests\Utils\Unit;
 
 use Illuminate\Support\Facades\App;
-use Permaxis\LaravelCore\App\Services\Tests\AbstractTest;
+use Permaxis\LaravelCore\app\Services\Tests\AbstractTest;
 
 class UtilsFileTest extends AbstractTest
 {

@@ -6,7 +6,7 @@
  * Time: 08:21
  */
 
-namespace Permaxis\LaravelCore\App\Services\Config;
+namespace Permaxis\LaravelCore\app\Services\Config;
 
 use Illuminate\Support\Arr;
 

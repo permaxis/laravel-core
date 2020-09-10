@@ -6,17 +6,17 @@
  * Time: 12:40
  */
 
-namespace Permaxis\LaravelCore\App\Services\Entities;
+namespace Permaxis\LaravelCore\app\Services\Entities;
 
 
 use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Permaxis\LaravelCore\App\Services\Api\RestClient as Client;
+use Permaxis\LaravelCore\app\Services\Api\RestClient as Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\MessageBag;
-use Permaxis\LaravelCore\App\Services\Entities\ModelManager;
+use Permaxis\LaravelCore\app\Services\Entities\ModelManager;
 use Permaxis\Oauth2Passport\App\Entities\ApiClient;
 
 Abstract class  AbstractApiModelManager
@@ -40,7 +40,7 @@ Abstract class  AbstractApiModelManager
     protected static $attributes = [];
 
     /**
-     * @var \Permaxis\LaravelCore\App\Services\Api\RestClient
+     * @var \Permaxis\LaravelCore\app\Services\Api\RestClient
      */
     protected $restClient;
 
@@ -51,7 +51,7 @@ Abstract class  AbstractApiModelManager
     }
 
 
-    public function getRestClient() : \Permaxis\LaravelCore\App\Services\Api\RestClient{
+    public function getRestClient() : \Permaxis\LaravelCore\app\Services\Api\RestClient{
 
         if (empty($this->restClient))
         {

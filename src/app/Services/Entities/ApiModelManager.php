@@ -6,13 +6,13 @@
  * Time: 12:40
  */
 
-namespace Permaxis\LaravelCore\App\Services\Entities;
+namespace Permaxis\LaravelCore\app\Services\Entities;
 
 
 use Carbon\Carbon;
-use Permaxis\LaravelCore\App\Services\Api\RestClient as Client;
+use Permaxis\LaravelCore\app\Services\Api\RestClient as Client;
 use Illuminate\Support\Facades\App;
-use Permaxis\LaravelCore\App\Services\Entities\ModelManager;
+use Permaxis\LaravelCore\app\Services\Entities\ModelManager;
 
 trait ApiModelManager
 {

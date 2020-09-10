@@ -1,9 +1,9 @@
 <?php
 
-namespace Permaxis\LaravelCore\App\Tests\Utils\Unit;
+namespace Permaxis\LaravelCore\app\Tests\Utils\Unit;
 
-use Permaxis\LaravelCore\App\Services\Tests\AbstractTest;
-use Permaxis\LaravelCore\App\Services\Utils\UtilsPdoConnection;
+use Permaxis\LaravelCore\app\Services\Tests\AbstractTest;
+use Permaxis\LaravelCore\app\Services\Utils\UtilsPdoConnection;
 
 class UtilsFileTest extends AbstractTest
 {

@@ -1,5 +1,5 @@
 <?php
-namespace Permaxis\LaravelCore\App\Services\Forms;
+namespace Permaxis\LaravelCore\app\Services\Forms;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;

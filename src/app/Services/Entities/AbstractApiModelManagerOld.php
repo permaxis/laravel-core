@@ -6,17 +6,17 @@
  * Time: 12:40
  */
 
-namespace Permaxis\LaravelCore\App\Services\Entities;
+namespace Permaxis\LaravelCore\app\Services\Entities;
 
 
 use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Permaxis\LaravelCore\App\Services\Api\Client;
+use Permaxis\LaravelCore\app\Services\Api\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\MessageBag;
-use Permaxis\LaravelCore\App\Services\Entities\ModelManager;
+use Permaxis\LaravelCore\app\Services\Entities\ModelManager;
 use Permaxis\Oauth2Passport\App\Entities\ApiClient;
 
 Abstract class  AbstractApiModelManagerOld

@@ -6,7 +6,7 @@
  * Time: 13:23
  */
 
-namespace Permaxis\LaravelCore\App\Services\Api;
+namespace Permaxis\LaravelCore\app\Services\Api;
 
 
 

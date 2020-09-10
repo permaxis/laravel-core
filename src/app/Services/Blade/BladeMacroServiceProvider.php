@@ -1,6 +1,6 @@
 <?php
 
-namespace Permaxis\LaravelCore\App\Services\Blade;
+namespace Permaxis\LaravelCore\app\Services\Blade;
 
 /**
  * Created by Permaxis.

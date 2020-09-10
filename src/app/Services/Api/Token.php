@@ -6,7 +6,7 @@
  * Time: 15:05
  */
 
-namespace Permaxis\LaravelCore\App\Services\Api;
+namespace Permaxis\LaravelCore\app\Services\Api;
 
 
 use Lcobucci\JWT\Builder;

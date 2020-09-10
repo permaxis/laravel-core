@@ -1,6 +1,6 @@
 <?php
 
-namespace Permaxis\LaravelCore\App\Services\Utils;
+namespace Permaxis\LaravelCore\app\Services\Utils;
 
 
 use Doctrine\ORM\Query\Parameter;

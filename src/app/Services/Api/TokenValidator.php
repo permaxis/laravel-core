@@ -6,7 +6,7 @@
  * Time: 13:23
  */
 
-namespace Permaxis\LaravelCore\App\Services\Api;
+namespace Permaxis\LaravelCore\app\Services\Api;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use InvalidArgumentException;
@@ -15,7 +15,7 @@ use Lcobucci\JWT\Signer\Key;
 use Lcobucci\JWT\Signer\Rsa\Sha256;
 use Lcobucci\JWT\ValidationData;
 use RuntimeException;
-use Permaxis\LaravelCore\App\Services\Api\AccessToken;
+use Permaxis\LaravelCore\app\Services\Api\AccessToken;
 
 class TokenValidator
 {

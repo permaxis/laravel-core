@@ -6,7 +6,7 @@
  * Time: 13:02
  */
 
-namespace Permaxis\LaravelCore\App\Services\Entities;
+namespace Permaxis\LaravelCore\app\Services\Entities;
 
 trait Migration
 {
