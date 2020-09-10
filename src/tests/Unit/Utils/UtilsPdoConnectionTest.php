@@ -1,6 +1,6 @@
 <?php
 
-namespace Permaxis\LaravelCore\app\Tests\Utils\Unit;
+namespace Permaxis\LaravelCore\app\tests\Utils\Unit;
 
 use Permaxis\LaravelCore\app\Services\Tests\AbstractTest;
 use Permaxis\LaravelCore\app\Services\Utils\UtilsPdoConnection;
