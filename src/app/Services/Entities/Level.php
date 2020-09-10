@@ -80,6 +80,7 @@ class Level
         {
             $tab_levels = array_intersect(self::$levels,$levels);
         }
+        
         foreach ($tab_levels as $level)
         {
             switch ($level)
